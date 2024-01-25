@@ -9,6 +9,9 @@ object Dependencies {
     const val composeUiToolingPreview = "androidx.compose.ui:ui-tooling-preview:${Versions.compose}"
     const val composeRuntime = "androidx.compose.runtime:runtime:${Versions.compose}"
     const val composeMaterial3 = "androidx.compose.material3:material3:${Versions.composeMaterial3}"
+    const val activityComposeComp = "androidx.activity:activity-compose:${Versions.activityCompose}"
+    const val composeTestAndroid = "androidx.compose.ui:ui-test-junit4:${Versions.compose}"
+    const val composeTestManifest = "androidx.compose.ui:ui-test-manifest:${Versions.compose}"
 
 //    // Coroutines
 //    const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0"
@@ -49,7 +52,10 @@ fun DependencyHandler.compose() {
     implementation(Dependencies.composeUiGraphics)
     implementation(Dependencies.composeUiTooling)
     implementation(Dependencies.composeMaterial3)
+    implementation(Dependencies.activityComposeComp)
     debugImplementation(Dependencies.composeUiToolingPreview)
+    debugImplementation(Dependencies.composeTestManifest)
+    androidTest(Dependencies.composeTestAndroid)
 }
 
 //fun DependencyHandler.coroutines() {
@@ -97,4 +103,8 @@ fun DependencyHandler.common() {
 
 fun DependencyHandler.preferences() {
     implementation(project(":preferences"))
+}
+
+fun DependencyHandler.loginFeature() {
+    implementation(project(":feature:login"))
 }
