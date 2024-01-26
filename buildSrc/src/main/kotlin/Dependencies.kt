@@ -13,6 +13,11 @@ object Dependencies {
     const val composeTestAndroid = "androidx.compose.ui:ui-test-junit4:${Versions.compose}"
     const val composeTestManifest = "androidx.compose.ui:ui-test-manifest:${Versions.compose}"
 
+    //Testing
+    const val junit = "junit:junit:${Versions.junit}"
+    const val junitTest = "androidx.test.ext:junit:${Versions.junitTest}"
+    const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
+
 //    // Coroutines
 //    const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0"
 //    const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.1"
@@ -44,6 +49,12 @@ object Dependencies {
     const val okHttpInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttp_version}"
 
 
+}
+
+fun DependencyHandler.testing() {
+    test(Dependencies.junit)
+    androidTest(Dependencies.junitTest)
+    androidTest(Dependencies.espresso)
 }
 
 fun DependencyHandler.compose() {

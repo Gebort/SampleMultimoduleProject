@@ -43,6 +43,7 @@ android {
 dependencies {
 
     compose()
+    testing()
 
     common()
     ui()
