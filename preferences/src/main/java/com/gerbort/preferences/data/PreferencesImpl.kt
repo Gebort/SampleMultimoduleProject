@@ -8,6 +8,8 @@ import androidx.datastore.preferences.preferencesDataStore
 import com.gerbort.common.di.AppDispatchers
 import com.gerbort.common.di.ApplicationScope
 import com.gerbort.common.di.Dispatcher
+import com.gerbort.common.logging.log
+import com.gerbort.common.logging.logInfo
 import com.gerbort.preferences.domain.Preferences
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
@@ -16,6 +18,7 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.shareIn
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -39,7 +42,7 @@ internal class PreferencesImpl @Inject constructor(
             }
         }
         .distinctUntilChanged { old, new -> old == new }
-        //.onEach { Log("Сохраненное имя - $it") }
+        .onEach { log("Сохраненное имя - $it") }
         .shareIn(scope, SharingStarted.Eagerly, replay = 1)
 
     override suspend fun setName(name: String?) = withContext(dispatcher) {
@@ -47,7 +50,7 @@ internal class PreferencesImpl @Inject constructor(
         context.dataStore.edit { preferences ->
             preferences[PreferencesKeys.NAME] = name.orEmpty()
         }
-        //log( "Изменение настроек, имя - $name")
+        logInfo( "Изменение настроек, имя - $name")
     }
 
     override fun getName(): Flow<String?> = _name
