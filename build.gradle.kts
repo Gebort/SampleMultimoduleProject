@@ -7,10 +7,11 @@ buildscript {
     dependencies {
         classpath(hiltAgp())
         classpath(kotlinAgp())
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.10")
     }
 }
 
 plugins {
     id("com.google.devtools.ksp") version Versions.kspPlugin apply false
+//    id("com.android.library") version "8.2.1" apply true
+  //  id("org.jetbrains.kotlin.android") version "1.9.10" apply false
 }
