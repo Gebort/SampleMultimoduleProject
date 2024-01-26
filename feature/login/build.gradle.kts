@@ -45,9 +45,9 @@ dependencies {
 
     compose()
     testing()
-
     common()
     ui()
     hilt()
+    preferences()
 
 }

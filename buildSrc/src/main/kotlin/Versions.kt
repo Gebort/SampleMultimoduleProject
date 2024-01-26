@@ -7,6 +7,7 @@ object Versions {
     const val composeMaterial3 = "1.1.2"
     const val room_version = "2.5.0"
     const val hilt_version = "2.48"
+    const val hilt_compose_navigation = "1.1.0"
     const val retrofit_version = "2.9.0"
     const val okHttp_version = "5.0.0-alpha.2"
     const val datastore = "1.0.0"

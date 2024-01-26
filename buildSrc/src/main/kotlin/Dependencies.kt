@@ -12,6 +12,7 @@ object Dependencies {
     const val activityComposeComp = "androidx.activity:activity-compose:${Versions.activityCompose}"
     const val composeTestAndroid = "androidx.compose.ui:ui-test-junit4:${Versions.compose}"
     const val composeTestManifest = "androidx.compose.ui:ui-test-manifest:${Versions.compose}"
+    const val composeViewModel = "androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0"
 
     //Compose Destinations
     const val composeDestinationsCore = "io.github.raamcosta.compose-destinations:core:${Versions.composeDestinations}"
@@ -37,6 +38,7 @@ object Dependencies {
     const val hiltCompiler = "com.google.dagger:hilt-compiler:${Versions.hilt_version}"
     const val hiltAndroidXCompliler = "androidx.hilt:hilt-compiler:1.0.0"
     const val hiltAgp = "com.google.dagger:hilt-android-gradle-plugin:${Versions.hilt_version}"
+    const val hiltNavigation = "androidx.hilt:hilt-navigation-compose:${Versions.hilt_compose_navigation}"
 
     //Kotlin
     const val kotlinAgp = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
@@ -68,6 +70,7 @@ fun DependencyHandler.compose() {
     implementation(Dependencies.composeUiTooling)
     implementation(Dependencies.composeMaterial3)
     implementation(Dependencies.activityComposeComp)
+    implementation(Dependencies.composeViewModel)
     debugImplementation(Dependencies.composeUiToolingPreview)
     debugImplementation(Dependencies.composeTestManifest)
     androidTest(Dependencies.composeTestAndroid)
@@ -88,6 +91,7 @@ fun DependencyHandler.datastore() {
 
 fun DependencyHandler.hilt() {
     implementation(Dependencies.hilt)
+    implementation(Dependencies.hiltNavigation)
     kapt(Dependencies.hiltCompiler)
     kapt(Dependencies.hiltAndroidXCompliler)
 }
