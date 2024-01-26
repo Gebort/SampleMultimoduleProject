@@ -10,20 +10,22 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavGraph
 import com.core.core_ui.theme.InvManagerTheme
+import com.gerbort.login.presentation.LoginScreen
+import com.gerbort.login.presentation.NavGraphs
+import com.gerbort.login.presentation.destinations.LoginScreenDestination
+import com.ramcosta.composedestinations.DestinationsNavHost
+import com.ramcosta.composedestinations.spec.Route
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             InvManagerTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
+                DestinationsNavHost(
+                    navGraph = NavGraphs.root,
+                )
             }
         }
     }

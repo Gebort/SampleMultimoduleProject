@@ -1,8 +1,9 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("dagger.hilt.android.plugin")
+    id("com.google.devtools.ksp")
     kotlin("kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -64,4 +65,6 @@ dependencies {
     preferences()
 
     loginFeature()
+
+
 }

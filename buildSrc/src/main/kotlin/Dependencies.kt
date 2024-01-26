@@ -13,6 +13,10 @@ object Dependencies {
     const val composeTestAndroid = "androidx.compose.ui:ui-test-junit4:${Versions.compose}"
     const val composeTestManifest = "androidx.compose.ui:ui-test-manifest:${Versions.compose}"
 
+    //Compose Destinations
+    const val composeDestinationsCore = "io.github.raamcosta.compose-destinations:core:${Versions.composeDestinations}"
+    const val composeDestinationsKsp = "io.github.raamcosta.compose-destinations:ksp:${Versions.composeDestinations}"
+
     //Testing
     const val junit = "junit:junit:${Versions.junit}"
     const val junitTest = "androidx.test.ext:junit:${Versions.junitTest}"
@@ -67,6 +71,8 @@ fun DependencyHandler.compose() {
     debugImplementation(Dependencies.composeUiToolingPreview)
     debugImplementation(Dependencies.composeTestManifest)
     androidTest(Dependencies.composeTestAndroid)
+    implementation(Dependencies.composeDestinationsCore)
+    ksp(Dependencies.composeDestinationsKsp)
 }
 
 //fun DependencyHandler.coroutines() {
@@ -94,7 +100,7 @@ fun kotlinAgp(): String = Dependencies.kotlinAgp
 fun DependencyHandler.room() {
     implementation(Dependencies.room)
     implementation(Dependencies.roomKtx)
-    kapt(Dependencies.roomCompiler)
+    ksp(Dependencies.roomCompiler)
 }
 
 fun DependencyHandler.retrofit() {
