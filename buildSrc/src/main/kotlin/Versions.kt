@@ -1,4 +1,5 @@
 object Versions {
+    const val android = "8.2.1"
     const val kotlin = "1.9.22"
     const val compose = "1.5.1"
     const val composeDestinations = "1.9.62"

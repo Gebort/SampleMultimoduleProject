@@ -23,13 +23,6 @@ object Dependencies {
     const val junitTest = "androidx.test.ext:junit:${Versions.junitTest}"
     const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
 
-//    // Coroutines
-//    const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0"
-//    const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.1"
-//    const val coroutinesLifecycle =  "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
-//    const val coroutinesRuntime =  "androidx.lifecycle:lifecycle-runtime-ktx:2.6.0-alpha05"
-
-
     //Datastore
     const val datastore = "androidx.datastore:datastore-preferences:${Versions.datastore}"
 

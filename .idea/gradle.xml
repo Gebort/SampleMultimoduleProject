@@ -27,6 +27,7 @@
             <option value="$PROJECT_DIR$/core/ui" />
             <option value="$PROJECT_DIR$/feature" />
             <option value="$PROJECT_DIR$/feature/login" />
+            <option value="$PROJECT_DIR$/networking" />
             <option value="$PROJECT_DIR$/preferences" />
           </set>
         </option>
