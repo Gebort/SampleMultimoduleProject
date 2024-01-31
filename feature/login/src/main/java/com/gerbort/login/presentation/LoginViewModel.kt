@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.gerbort.common.logging.log
 import com.gerbort.common.model.User
+import com.gerbort.networking.domain.NetworkDataSource
 import com.gerbort.networking.domain.NetworkMonitor
 import com.gerbort.preferences.domain.Preferences
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,7 +18,8 @@ import javax.inject.Inject
 @HiltViewModel
 class LoginViewModel @Inject constructor(
     private val preferences: Preferences,
-    private val networkMonitor: NetworkMonitor
+    private val networkMonitor: NetworkMonitor,
+    private val networkDataSource: NetworkDataSource
 ): ViewModel() {
 
     private val _state = MutableStateFlow(LoginScreenState())
