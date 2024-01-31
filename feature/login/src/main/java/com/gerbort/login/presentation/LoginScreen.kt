@@ -58,6 +58,13 @@ private fun Login(
             .background(MaterialTheme.colorScheme.background)
     ) {
 
+        Text(
+            text = if (state.isConnected) "Connected" else "Not connected",
+            color = MaterialTheme.colorScheme.onBackground,
+            fontSize = 18.sp
+        )
+        Spacer(modifier = Modifier.height(8.dp))
+
         state.user?.let { user ->
             Text(
                 text = "Welcome back, ${user.name}",

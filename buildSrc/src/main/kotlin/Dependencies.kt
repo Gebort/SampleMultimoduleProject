@@ -122,3 +122,7 @@ fun DependencyHandler.preferences() {
 fun DependencyHandler.loginFeature() {
     implementation(project(":feature:login"))
 }
+
+fun DependencyHandler.networking() {
+    implementation(project(":networking"))
+}

@@ -64,6 +64,7 @@ dependencies {
     common()
     ui()
     preferences()
+    networking()
 
     loginFeature()
 
