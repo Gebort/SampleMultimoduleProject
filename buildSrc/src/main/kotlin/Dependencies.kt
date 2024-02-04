@@ -12,7 +12,8 @@ object Dependencies {
     const val activityComposeComp = "androidx.activity:activity-compose:${Versions.activityCompose}"
     const val composeTestAndroid = "androidx.compose.ui:ui-test-junit4:${Versions.compose}"
     const val composeTestManifest = "androidx.compose.ui:ui-test-manifest:${Versions.compose}"
-    const val composeViewModel = "androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0"
+    const val composeViewModel = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.composeViewModel}"
+    const val composeLifecycle = "androidx.lifecycle:lifecycle-runtime-compose:${Versions.composeLifecycle}"
 
     //Compose Destinations
     const val composeDestinationsCore = "io.github.raamcosta.compose-destinations:core:${Versions.composeDestinations}"
@@ -64,6 +65,7 @@ fun DependencyHandler.compose() {
     implementation(Dependencies.composeMaterial3)
     implementation(Dependencies.activityComposeComp)
     implementation(Dependencies.composeViewModel)
+    implementation(Dependencies.composeLifecycle)
     debugImplementation(Dependencies.composeUiToolingPreview)
     debugImplementation(Dependencies.composeTestManifest)
     androidTest(Dependencies.composeTestAndroid)
@@ -125,4 +127,12 @@ fun DependencyHandler.loginFeature() {
 
 fun DependencyHandler.networking() {
     implementation(project(":networking"))
+}
+
+fun DependencyHandler.database() {
+    implementation(project(":database"))
+}
+
+fun DependencyHandler.data() {
+    implementation(project(":data"))
 }

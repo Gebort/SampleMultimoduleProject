@@ -1,17 +1,13 @@
 package com.gerbort.networking.domain.di
 
-import android.content.Context
 import com.gerbort.networking.BuildConfig
 import com.gerbort.networking.data.BASE_URL
-import com.gerbort.networking.data.NetworkMonitorImpl
 import com.gerbort.networking.data.RetrofitApi
 import com.gerbort.networking.data.RetrofitDataSource
 import com.gerbort.networking.domain.NetworkDataSource
-import com.gerbort.networking.domain.NetworkMonitor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -31,14 +27,6 @@ internal object NetworkingModule {
         retrofitApi: RetrofitApi
     ): NetworkDataSource {
         return RetrofitDataSource(retrofitApi)
-    }
-
-    @Provides
-    @Singleton
-    internal fun provideNetworkMonitor(
-        @ApplicationContext context: Context
-    ): NetworkMonitor {
-        return NetworkMonitorImpl(context)
     }
 
     @Provides

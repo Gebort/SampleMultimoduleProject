@@ -50,6 +50,6 @@ dependencies {
     ui()
     common()
     preferences()
-    networking()
+    data()
 
 }

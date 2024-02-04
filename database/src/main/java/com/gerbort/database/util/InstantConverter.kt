@@ -11,7 +11,6 @@ internal class InstantConverter {
     fun longToInstant(value: String?): Instant? =
         value?.let(Instant::parse)
 
-    @RequiresApi(Build.VERSION_CODES.O)
     @TypeConverter
     fun instantToLong(instant: Instant?): String? =
         instant?.toString()

@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -23,25 +22,26 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
 @Destination(start = true)
 @Composable
-fun LoginScreen(
+fun LoginRoute(
     navigator: DestinationsNavigator,
     vm: LoginViewModel = hiltViewModel(),
 ) {
 
-    Login(
-        state = vm.state.collectAsState().value,
+    LoginScreen(
+        state = vm.state.collectAsStateWithLifecycle().value,
         onSaveName = { newName -> vm.onEvent(LoginEvent.SaveName(newName))}
     )
 }
 
 @Preview
 @Composable
-private fun Login(
+private fun LoginScreen(
     state: LoginScreenState = LoginScreenState(),
     onSaveName: (String) -> Unit = {}
 ) {
