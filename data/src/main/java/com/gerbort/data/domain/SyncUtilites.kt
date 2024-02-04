@@ -1,5 +1,15 @@
 package com.gerbort.data.domain
 
+import kotlinx.coroutines.flow.Flow
+
+/**
+ * Reports on if synchronization is in progress
+ */
+interface SyncManager {
+    val isSyncing: Flow<Boolean>
+    fun requestSync()
+}
+
 /**
  * Interface marker for a class that manages synchronization between local data and a remote
  * source for a [Syncable].

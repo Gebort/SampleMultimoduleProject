@@ -145,3 +145,7 @@ fun DependencyHandler.database() {
 fun DependencyHandler.data() {
     implementation(project(":data"))
 }
+
+fun DependencyHandler.sync() {
+    implementation(project(":sync"))
+}

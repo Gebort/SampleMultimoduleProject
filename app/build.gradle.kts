@@ -60,12 +60,13 @@ dependencies {
     room()
     retrofit()
     compose()
-    workManager()
 
     common()
     ui()
     preferences()
     networking()
+    data()
+    sync()
 
     loginFeature()
 
