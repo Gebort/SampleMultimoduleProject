@@ -2,6 +2,7 @@ package com.gerbort.data.data.repository
 
 import com.gerbort.common.model.User
 import com.gerbort.data.data.model.toCommon
+import com.gerbort.data.domain.Synchronizer
 import com.gerbort.data.domain.repository.UserRepository
 import com.gerbort.database.dao.UserDao
 import com.gerbort.networking.domain.NetworkDataSource
@@ -19,5 +20,9 @@ class UserRepositoryImpl(
 
     override suspend fun saveUser(user: User) {
         //TODO
+    }
+
+    override suspend fun syncWith(synchronizer: Synchronizer): Boolean {
+        TODO("Not yet implemented")
     }
 }

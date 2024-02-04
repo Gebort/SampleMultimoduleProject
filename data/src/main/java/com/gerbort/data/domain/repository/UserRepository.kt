@@ -1,9 +1,10 @@
 package com.gerbort.data.domain.repository
 
 import com.gerbort.common.model.User
+import com.gerbort.data.domain.Syncable
 import kotlinx.coroutines.flow.Flow
 
-interface UserRepository {
+interface UserRepository: Syncable {
 
     fun getUser(): Flow<User?>
 
