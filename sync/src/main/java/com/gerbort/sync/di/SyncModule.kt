@@ -12,7 +12,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object SyncModule {
+internal object SyncModule {
     @Provides
     @Singleton
     internal fun provideSyncStatusMonitor(

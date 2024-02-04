@@ -19,7 +19,7 @@ enum class AppDispatchers {
 
 @Module
 @InstallIn(SingletonComponent::class)
-object DispatchersModule {
+internal object DispatchersModule {
     @Provides
     @Dispatcher(AppDispatchers.IO)
     fun providesIODispatcher(): CoroutineDispatcher = Dispatchers.IO
