@@ -10,11 +10,11 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
 class UserRepositoryImpl(
-    private val userDataSource: NetworkDataSource,
-    private val userDao: UserDao
+    private val userNetworkDao: NetworkDataSource,
+    private val userRoomDao: UserDao
 ): UserRepository {
     override fun getUser(): Flow<User?> {
-        return userDao.getUserInfo()
+        return userRoomDao.getUserInfo()
             .map { it.firstOrNull()?.toCommon() }
     }
 

@@ -48,6 +48,10 @@ object Dependencies {
     const val okHttp = "com.squareup.okhttp3:okhttp:${Versions.okHttp_version}"
     const val okHttpInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttp_version}"
 
+    //Work Manager
+    const val workManager = "androidx.work:work-runtime-ktx:${Versions.workManager}"
+    const val workManagerHilt = "androidx.hilt:hilt-work:${Versions.workManagerHilt}"
+
 
 }
 
@@ -89,6 +93,11 @@ fun DependencyHandler.hilt() {
     implementation(Dependencies.hiltNavigation)
     kapt(Dependencies.hiltCompiler)
     kapt(Dependencies.hiltAndroidXCompliler)
+}
+
+fun DependencyHandler.workManager() {
+    implementation(Dependencies.workManager)
+    implementation(Dependencies.workManagerHilt)
 }
 
 fun hiltAgp(): String = Dependencies.hiltAgp

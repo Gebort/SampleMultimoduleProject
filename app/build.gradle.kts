@@ -60,6 +60,7 @@ dependencies {
     room()
     retrofit()
     compose()
+    workManager()
 
     common()
     ui()
