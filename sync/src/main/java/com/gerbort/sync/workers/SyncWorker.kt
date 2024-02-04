@@ -44,13 +44,11 @@ internal class SyncWorker @AssistedInject constructor(
 
         if (syncedSuccessfully) {
             log("SyncWorker: synced successfully")
-            Result.success()
+            return@withContext Result.success()
         } else {
             log("SyncWorker: sync failed")
-            Result.retry()
+            return@withContext Result.retry()
         }
-
-        return@withContext Result.failure()
     }
 
     companion object {

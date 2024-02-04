@@ -23,6 +23,6 @@ class UserRepositoryImpl(
     }
 
     override suspend fun syncWith(synchronizer: Synchronizer): Boolean {
-        TODO("Not yet implemented")
+        return true
     }
 }
