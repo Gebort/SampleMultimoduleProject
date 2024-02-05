@@ -13,9 +13,11 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.core.core_ui.theme.InvManagerTheme
+import com.gerbort.common.logging.log
 import com.gerbort.data.domain.SyncManager
 import com.gerbort.login.presentation.NavGraphs
 import com.ramcosta.composedestinations.DestinationsNavHost
+import com.ramcosta.composedestinations.rememberNavHostEngine
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
@@ -58,9 +60,17 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
 
         setContent {
+            val engine = rememberNavHostEngine()
+            val navController = engine.rememberNavController()
+
+            navController.addOnDestinationChangedListener { _, destination, _ ->
+                log("Navigating to ${destination.route}")
+            }
+
             InvManagerTheme {
                 DestinationsNavHost(
                     navGraph = NavGraphs.root,
+                    navController = navController
                 )
             }
         }

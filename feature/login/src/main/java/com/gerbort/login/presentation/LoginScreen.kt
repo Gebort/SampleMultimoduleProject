@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.gerbort.login.presentation.destinations.SecondRouteDestination
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
@@ -35,7 +36,8 @@ fun LoginRoute(
 
     LoginScreen(
         state = vm.state.collectAsStateWithLifecycle().value,
-        onSaveName = { newName -> vm.onEvent(LoginEvent.SaveName(newName))}
+        onSaveName = { newName -> vm.onEvent(LoginEvent.SaveName(newName))},
+        onNextScreen = { navigator.navigate(SecondRouteDestination) }
     )
 }
 
@@ -43,7 +45,8 @@ fun LoginRoute(
 @Composable
 private fun LoginScreen(
     state: LoginScreenState = LoginScreenState(),
-    onSaveName: (String) -> Unit = {}
+    onSaveName: (String) -> Unit = {},
+    onNextScreen: () -> Unit = {},
 ) {
 
     var currentName by remember(state.user) {
@@ -83,6 +86,11 @@ private fun LoginScreen(
             onClick = { onSaveName(currentName) }
         ) {
             Text(text = "Save name")
+        }
+        Button(
+            onClick = { onNextScreen() }
+        ) {
+            Text(text = "Next Screen")
         }
 
     }
