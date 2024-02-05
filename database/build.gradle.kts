@@ -1,31 +1,27 @@
+import plugins.MainGradlePlugin
+
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
-    id("com.google.devtools.ksp")
-    kotlin("kapt")
-    id("dagger.hilt.android.plugin")
+    `android-library`
+    `kotlin-android`
+}
+
+apply<MainGradlePlugin>()
+
+android {
+    namespace = "com.gerbort.database"
+
+    defaultConfig {
+//        ksp {
+//            arg("room.schemaLocation", "$projectDir/schemas")
+//        }
+    }
 }
 
 android {
     namespace = "com.gerbort.database"
-    compileSdk = 34
 
-    defaultConfig {
-        minSdk = 24
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
-    }
 
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
-    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
