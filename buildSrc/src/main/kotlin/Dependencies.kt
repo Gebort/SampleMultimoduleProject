@@ -16,7 +16,7 @@ object Dependencies {
     const val composeLifecycle = "androidx.lifecycle:lifecycle-runtime-compose:${Versions.composeLifecycle}"
 
     //Compose Destinations
-    const val composeDestinationsCore = "io.github.raamcosta.compose-destinations:core:${Versions.composeDestinations}"
+    const val composeDestinationsCore = "io.github.raamcosta.compose-destinations:animations-core:${Versions.composeDestinations}"
     const val composeDestinationsKsp = "io.github.raamcosta.compose-destinations:ksp:${Versions.composeDestinations}"
 
     //Splashscreen

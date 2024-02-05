@@ -5,30 +5,33 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.core.core_ui.theme.InvManagerTheme
 import com.gerbort.common.logging.log
-import com.gerbort.data.domain.SyncManager
 import com.gerbort.login.presentation.NavGraphs
+import com.google.accompanist.navigation.material.ExperimentalMaterialNavigationApi
 import com.ramcosta.composedestinations.DestinationsNavHost
-import com.ramcosta.composedestinations.rememberNavHostEngine
+import com.ramcosta.composedestinations.animations.defaults.RootNavGraphDefaultAnimations
+import com.ramcosta.composedestinations.animations.rememberAnimatedNavHostEngine
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     private val viewModel: MainActivityViewModel by viewModels()
 
+    @OptIn(ExperimentalMaterialNavigationApi::class, ExperimentalAnimationApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val splashScreen = installSplashScreen()
@@ -60,7 +63,17 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
 
         setContent {
-            val engine = rememberNavHostEngine()
+            val engine = rememberAnimatedNavHostEngine(
+                rootDefaultAnimations = RootNavGraphDefaultAnimations.ACCOMPANIST_FADING,
+                defaultAnimationsForNestedNavGraph = mapOf(
+//                    NavGraphs.settings to NestedNavGraphDefaultAnimations(
+//                        enterTransition = { fadeIn(animationSpec = tween(2000)) },
+//                        exitTransition = { fadeOut(animationSpec = tween(2000)) }
+//                    ),
+//                    NavGraphs.other to NestedNavGraphDefaultAnimations.ACCOMPANIST_FADING
+                )
+
+            )
             val navController = engine.rememberNavController()
 
             navController.addOnDestinationChangedListener { _, destination, _ ->
@@ -70,6 +83,7 @@ class MainActivity : ComponentActivity() {
             InvManagerTheme {
                 DestinationsNavHost(
                     navGraph = NavGraphs.root,
+                    engine = engine,
                     navController = navController
                 )
             }
