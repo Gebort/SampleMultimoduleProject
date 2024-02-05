@@ -22,7 +22,7 @@ fun SecondRoute(
     navigator: DestinationsNavigator,
 ) {
     SecondScreen(
-        onBack = { navigator.popBackStack() }
+        onBack = { navigator.navigateUp() }
     )
 }
 

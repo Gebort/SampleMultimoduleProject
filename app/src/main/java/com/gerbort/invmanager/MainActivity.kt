@@ -63,29 +63,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
 
         setContent {
-            val engine = rememberAnimatedNavHostEngine(
-                rootDefaultAnimations = RootNavGraphDefaultAnimations.ACCOMPANIST_FADING,
-                defaultAnimationsForNestedNavGraph = mapOf(
-//                    NavGraphs.settings to NestedNavGraphDefaultAnimations(
-//                        enterTransition = { fadeIn(animationSpec = tween(2000)) },
-//                        exitTransition = { fadeOut(animationSpec = tween(2000)) }
-//                    ),
-//                    NavGraphs.other to NestedNavGraphDefaultAnimations.ACCOMPANIST_FADING
-                )
-
-            )
-            val navController = engine.rememberNavController()
-
-            navController.addOnDestinationChangedListener { _, destination, _ ->
-                log("Navigating to ${destination.route}")
-            }
-
             InvManagerTheme {
-                DestinationsNavHost(
-                    navGraph = NavGraphs.root,
-                    engine = engine,
-                    navController = navController
-                )
+                AppContent()
             }
         }
     }
