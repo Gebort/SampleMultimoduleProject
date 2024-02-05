@@ -41,7 +41,7 @@ internal fun KClass<out CoroutineWorker>.delegatedData() =
  * In other words, it allows for custom workers in a library module without having to own
  * configuration of the WorkManager singleton.
  */
-class DelegatingWorker(
+internal class DelegatingWorker(
     appContext: Context,
     workerParams: WorkerParameters,
 ) : CoroutineWorker(appContext, workerParams) {

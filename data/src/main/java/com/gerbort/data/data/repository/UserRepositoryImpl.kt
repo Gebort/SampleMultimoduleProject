@@ -9,7 +9,7 @@ import com.gerbort.networking.domain.NetworkDataSource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-class UserRepositoryImpl(
+internal class UserRepositoryImpl(
     private val userNetworkDao: NetworkDataSource,
     private val userRoomDao: UserDao
 ): UserRepository {

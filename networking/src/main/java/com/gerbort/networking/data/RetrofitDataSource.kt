@@ -8,14 +8,14 @@ import retrofit2.http.GET
 
 internal const val BASE_URL = "http://test.com"
 
-interface RetrofitApi {
+internal interface RetrofitApi {
 
     @GET
     suspend fun getUserInfo(): Response<UserInfoNetwork>
 
 }
 
-class RetrofitDataSource(
+internal class RetrofitDataSource(
     private val retrofitApi: RetrofitApi
 ): NetworkDataSource {
 

@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.update
 import javax.inject.Inject
 
-class NetworkMonitorImpl @Inject constructor(
+internal class NetworkMonitorImpl @Inject constructor(
     @ApplicationContext private val context: Context,
     ): NetworkMonitor {
 
