@@ -1,7 +1,7 @@
-package com.gerbort.sampleproject.logging
+package com.gerbort.invmanager.logging
 
 import android.util.Log
-import com.gerbort.sampleproject.BuildConfig
+import com.gerbort.invmanager.BuildConfig
 import java.util.logging.Handler
 import java.util.logging.Level
 import java.util.logging.LogManager
