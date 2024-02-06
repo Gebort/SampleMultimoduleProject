@@ -31,6 +31,7 @@
             <option value="$PROJECT_DIR$/feature/login" />
             <option value="$PROJECT_DIR$/networking" />
             <option value="$PROJECT_DIR$/preferences" />
+            <option value="$PROJECT_DIR$/sync" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />

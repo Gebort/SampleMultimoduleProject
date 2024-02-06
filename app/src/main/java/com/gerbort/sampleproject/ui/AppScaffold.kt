@@ -1,4 +1,4 @@
-package com.gerbort.invmanager.ui
+package com.gerbort.sampleproject.ui
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.PaddingValues

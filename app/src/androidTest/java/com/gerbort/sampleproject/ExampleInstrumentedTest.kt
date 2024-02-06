@@ -1,4 +1,4 @@
-package com.gerbort.invmanager
+package com.gerbort.sampleproject
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

@@ -33,7 +33,6 @@ fun LoginRoute(
     navigator: DestinationsNavigator,
     vm: LoginViewModel = hiltViewModel(),
 ) {
-
     LoginScreen(
         state = vm.state.collectAsStateWithLifecycle().value,
         onSaveName = { newName -> vm.onEvent(LoginEvent.SaveName(newName))},

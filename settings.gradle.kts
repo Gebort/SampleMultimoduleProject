@@ -13,7 +13,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "InvManager"
+rootProject.name = "SampleProject"
 include(":app")
 include(":core:ui")
 include(":preferences")
