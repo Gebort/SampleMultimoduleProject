@@ -1,4 +1,4 @@
-package com.gerbort.sampleproject
+package com.gerbort.invmanager
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

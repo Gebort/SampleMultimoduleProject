@@ -1,8 +1,8 @@
-package com.gerbort.sampleproject
+package com.gerbort.invmanager
 
 import android.app.Application
 import com.gerbort.data.domain.SyncManager
-import com.gerbort.sampleproject.logging.LoggingHandler
+import com.gerbort.invmanager.logging.LoggingHandler
 import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 
