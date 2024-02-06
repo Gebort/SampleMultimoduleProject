@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.gerbort.invmanager"
+    namespace = "com.gerbort.sampleproject"
     compileSdk = ProjectConfig.compileSdk
 
     defaultConfig {

@@ -1,4 +1,4 @@
-package com.gerbort.invmanager
+package com.gerbort.sampleproject
 
 import org.junit.Test
 

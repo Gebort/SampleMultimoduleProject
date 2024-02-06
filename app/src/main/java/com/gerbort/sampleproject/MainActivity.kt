@@ -1,4 +1,4 @@
-package com.gerbort.invmanager
+package com.gerbort.sampleproject
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -29,7 +29,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val splashScreen = installSplashScreen()
-        
+
         var uiState: MainActivityUiState by mutableStateOf(MainActivityUiState.Loading)
 
         // Update the uiState

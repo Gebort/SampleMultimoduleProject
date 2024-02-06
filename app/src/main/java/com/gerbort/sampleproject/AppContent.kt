@@ -1,9 +1,9 @@
-package com.gerbort.invmanager
+package com.gerbort.sampleproject
 
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.runtime.Composable
 import com.gerbort.common.logging.log
-import com.gerbort.invmanager.ui.AppScaffold
+import com.gerbort.sampleproject.ui.AppScaffold
 import com.gerbort.login.presentation.NavGraphs
 import com.gerbort.login.presentation.destinations.Destination
 import com.gerbort.login.presentation.destinations.LoginRouteDestination
