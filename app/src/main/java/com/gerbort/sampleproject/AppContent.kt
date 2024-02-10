@@ -1,61 +1,39 @@
 package com.gerbort.sampleproject
 
-import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.navigation.compose.rememberNavController
 import com.gerbort.common.logging.log
-import com.gerbort.sampleproject.ui.AppScaffold
-import com.gerbort.login.presentation.NavGraphs
-import com.gerbort.login.presentation.destinations.Destination
-import com.gerbort.login.presentation.destinations.LoginRouteDestination
-import com.google.accompanist.navigation.material.ExperimentalMaterialNavigationApi
-import com.ramcosta.composedestinations.DestinationsNavHost
-import com.ramcosta.composedestinations.animations.defaults.RootNavGraphDefaultAnimations
-import com.ramcosta.composedestinations.animations.rememberAnimatedNavHostEngine
+import com.gerbort.sampleproject.navigation.AppNavHost
 
-@OptIn(ExperimentalMaterialNavigationApi::class, ExperimentalAnimationApi::class)
 @Composable
 fun AppContent() {
-    val engine = rememberAnimatedNavHostEngine(
-        rootDefaultAnimations = RootNavGraphDefaultAnimations.ACCOMPANIST_FADING,
-        defaultAnimationsForNestedNavGraph = mapOf(
-//                    NavGraphs.settings to NestedNavGraphDefaultAnimations(
-//                        enterTransition = { fadeIn(animationSpec = tween(2000)) },
-//                        exitTransition = { fadeOut(animationSpec = tween(2000)) }
-//                    ),
-//                    NavGraphs.other to NestedNavGraphDefaultAnimations.ACCOMPANIST_FADING
-        )
-
-    )
-    val navController = engine.rememberNavController()
+    val navController = rememberNavController()
 
     navController.addOnDestinationChangedListener { _, destination, _ ->
         destination.log("Navigating to ${destination.route}")
     }
 
-    val startRoute = LoginRouteDestination
-
-    AppScaffold(
-        navController = navController,
-        startRoute = startRoute,
-        topBar = { dest, backStackEntry ->
-            if (dest.shouldShowScaffoldElements) {
-                //TopBar(dest, backStackEntry)
-            }
-        },
-        bottomBar = {
-            if (it.shouldShowScaffoldElements) {
-                //BottomBar(navController)
-            }
+    Scaffold(
+        containerColor = Color.Transparent,
+        contentColor = MaterialTheme.colorScheme.onBackground,
+        contentWindowInsets = WindowInsets(0, 128, 0, 64),
+    ) { padding ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(padding)
+        ) {
+            AppNavHost(
+                navController = navController
+            )
         }
-    ) {
-        DestinationsNavHost(
-            engine = engine,
-            navController = navController,
-            navGraph = NavGraphs.root,
-            //modifier = Modifier.padding(it).fillMaxSize(),
-            startRoute = startRoute
-        )
     }
 }
-
-private val Destination.shouldShowScaffoldElements get() = true

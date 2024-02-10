@@ -11,18 +11,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.ramcosta.composedestinations.annotation.Destination
-import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
-@Destination
 @Composable
 fun SecondRoute(
-    navigator: DestinationsNavigator,
+    onBack: () -> Unit
 ) {
     SecondScreen(
-        onBack = { navigator.navigateUp() }
+        onBack = onBack
     )
 }
 

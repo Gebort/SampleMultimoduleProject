@@ -23,20 +23,17 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.gerbort.login.presentation.destinations.SecondRouteDestination
-import com.ramcosta.composedestinations.annotation.Destination
-import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
-@Destination(start = true)
 @Composable
 fun LoginRoute(
-    navigator: DestinationsNavigator,
     vm: LoginViewModel = hiltViewModel(),
+    onSecondScreen: () -> Unit,
+    logout: Boolean = false,
 ) {
     LoginScreen(
         state = vm.state.collectAsStateWithLifecycle().value,
         onSaveName = { newName -> vm.onEvent(LoginEvent.SaveName(newName))},
-        onNextScreen = { navigator.navigate(SecondRouteDestination, true) }
+        onNextScreen = onSecondScreen
     )
 }
 

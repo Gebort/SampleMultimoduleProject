@@ -15,9 +15,8 @@ object Dependencies {
     const val composeViewModel = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.composeViewModel}"
     const val composeLifecycle = "androidx.lifecycle:lifecycle-runtime-compose:${Versions.composeLifecycle}"
 
-    //Compose Destinations
-    const val composeDestinationsCore = "io.github.raamcosta.compose-destinations:animations-core:${Versions.composeDestinations}"
-    const val composeDestinationsKsp = "io.github.raamcosta.compose-destinations:ksp:${Versions.composeDestinations}"
+    //Compose Navigation
+    const val composeNavigation = "androidx.navigation:navigation-compose:${Versions.composeNavigation}"
 
     //Splashscreen
     const val splashscreen = "androidx.core:core-splashscreen:${Versions.splashscreen}"
@@ -75,8 +74,7 @@ object Dependencies {
         debugImplementation(Dependencies.composeUiToolingPreview)
         debugImplementation(Dependencies.composeTestManifest)
         androidTest(Dependencies.composeTestAndroid)
-        implementation(Dependencies.composeDestinationsCore)
-        ksp(Dependencies.composeDestinationsKsp)
+        implementation(Dependencies.composeNavigation)
     }
 
     fun DependencyHandler.splashscreen() {
