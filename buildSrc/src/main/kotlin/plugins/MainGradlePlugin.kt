@@ -1,15 +1,22 @@
 package plugins
 
 import com.android.build.gradle.LibraryExtension
+import hilt
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.JavaVersion
+import org.gradle.kotlin.dsl.accessors.runtime.addDependencyTo
+import org.gradle.kotlin.dsl.dependencies
 
 class MainGradlePlugin: Plugin<Project> {
 
     override fun apply(project: Project) {
         with(project) {
             applyPlugins()
+
+            dependencies {
+                hilt()
+            }
         }
 
         setProjectConfig(project)

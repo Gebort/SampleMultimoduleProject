@@ -1,19 +1,7 @@
 import plugins.MainGradlePlugin
 
 plugins {
-    `android-library`
-    `kotlin-android`
+    id("project.android.library")
 }
 
-apply<MainGradlePlugin>()
-
-android {
-    namespace = "com.gerbort.common"
-}
-
-dependencies {
-
-    testing()
-    hilt()
-
-}
+android.namespace = "com.gerbort.common"

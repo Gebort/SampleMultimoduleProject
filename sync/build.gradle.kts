@@ -1,11 +1,8 @@
 import plugins.MainGradlePlugin
 
 plugins {
-    `android-library`
-    `kotlin-android`
+    id("project.android.library")
 }
-
-apply<MainGradlePlugin>()
 
 android {
     namespace = "com.gerbort.sync"
@@ -13,8 +10,6 @@ android {
 
 dependencies {
 
-    testing()
-    hilt()
     workManager()
 
     common()

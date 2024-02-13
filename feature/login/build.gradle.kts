@@ -2,22 +2,15 @@ import plugins.ComposeGradlePlugin
 import plugins.MainGradlePlugin
 
 plugins {
-    `android-library`
-    `kotlin-android`
+    id("project.android.library")
+    id("project.android.library.compose")
 }
-
-apply<MainGradlePlugin>()
-apply<ComposeGradlePlugin>()
 
 android {
     namespace = "com.gerbort.login"
 }
 
 dependencies {
-
-    compose()
-    testing()
-    hilt()
 
     ui()
     common()

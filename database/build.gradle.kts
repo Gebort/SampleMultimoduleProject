@@ -1,12 +1,9 @@
 import plugins.MainGradlePlugin
 
 plugins {
-    `android-library`
-    `kotlin-android`
+    id("project.android.library")
     id("com.google.devtools.ksp")
 }
-
-apply<MainGradlePlugin>()
 
 android {
     namespace = "com.gerbort.database"
@@ -20,9 +17,7 @@ android {
 
 dependencies {
 
-    testing()
     room()
-    hilt()
 
     common()
 

@@ -1,11 +1,8 @@
 import plugins.MainGradlePlugin
 
 plugins {
-    `android-library`
-    `kotlin-android`
+    id("project.android.library")
 }
-
-apply<MainGradlePlugin>()
 
 android {
     namespace = "com.gerbort.networking"
@@ -17,8 +14,6 @@ android {
 
 dependencies {
 
-    testing()
-    hilt()
     retrofit()
 
     common()
