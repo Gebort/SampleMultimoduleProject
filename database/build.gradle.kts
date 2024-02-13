@@ -2,7 +2,6 @@ import plugins.MainGradlePlugin
 
 plugins {
     id("project.android.library")
-    id("com.google.devtools.ksp")
 }
 
 android {
